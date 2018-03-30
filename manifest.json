@@ -1,0 +1,37 @@
+{
+  "manifest_version": 2,
+  "name": "Spin Doctor",
+  "version": "0.1",
+  "description": "A tool for detecting async tab switcher spinners.",
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "browser_action": {
+    "default_icon": "icons/spinner.png",
+    "theme_icons": [
+      {
+        "light": "icons/spinner-light.png",
+        "dark": "icons/spinner.png",
+        "size": 32
+      }
+    ]
+  },
+  "applications": {
+    "gecko": {
+      "id": "spindoctor@mikeconley.ca",
+      "strict_min_version": "61.0a1",
+      "update_url": "https://raw.githubusercontent.com/mikeconley/spindoctor/master/docs/update.rdf"
+    }
+  },
+
+  "experiment_apis": {
+    "tabswitcher": {
+      "schema": "api/schema.json",
+      "parent": {
+        "scopes": ["addon_parent"],
+        "script": "api/api.js",
+        "paths": [["tabswitcher"]]
+      }
+    }
+  }
+}

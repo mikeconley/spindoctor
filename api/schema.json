@@ -1,0 +1,13 @@
+[
+  {
+    "namespace": "tabswitcher",
+    "events": [
+      {
+        "name": "onSpinner",
+        "type": "function",
+        "description": "Fired when a tab switch spinner starts being displayed.",
+        "parameters": []
+      }
+    ]
+  }
+]
