@@ -14,16 +14,20 @@ this.tabswitcher = class extends ExtensionAPI {
 
     return {
       tabswitcher: {
-        onSpinner: new EventManager(context, "tabswitcher-onspinner", fire => {
+        onSpinner: new EventManager({
+          context,
+          name: "tabswitcher-onspinner",
+          register: fire => {
 
-          let observer = (subject, topic, data) => {
-            fire.async();
-          }
+            let observer = (subject, topic, data) => {
+              fire.async();
+            }
 
-          Services.obs.addObserver(observer, "tabswitch-spinner");
+            Services.obs.addObserver(observer, "tabswitch-spinner");
 
-          return () => {
-            Services.obs.removeObserver(observer, "tabswitch-spinner");
+            return () => {
+              Services.obs.removeObserver(observer, "tabswitch-spinner");
+            }
           }
         }).api()
       }
